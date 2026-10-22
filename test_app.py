@@ -114,3 +114,10 @@ def test_predict_result_returns_argmax_of_model_output():
     fake_output = np.array([[0.05, 0.1, 0.05, 0.7, 0.02, 0.02, 0.02, 0.02, 0.01, 0.01]])
     with patch("model.model.predict", return_value=fake_output):
         assert predict_result(np.zeros((1, 224, 224, 3))) == 3
+
+
+def test_health_endpoint(client):
+    """The health endpoint reports the service is up."""
+    response = client.get("/health")
+    assert response.status_code == 200
+    assert response.get_json() == {"status": "ok"}

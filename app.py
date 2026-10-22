@@ -1,9 +1,16 @@
 """Flask application serving the hand sign digit recognition web UI."""
-from flask import Flask, render_template, request
+import os
+from flask import Flask, render_template, request, jsonify
 from model import preprocess_img, predict_result
 
 # Instantiating flask app
 app = Flask(__name__)
+
+
+@app.route("/health")
+def health():
+    status = "healthy"
+    return jsonify(status=status)
 
 
 @app.route("/")
