@@ -1,5 +1,4 @@
 """Flask application serving the hand sign digit recognition web UI."""
-import os
 from flask import Flask, render_template, request, jsonify
 from model import preprocess_img, predict_result
 
@@ -9,8 +8,8 @@ app = Flask(__name__)
 
 @app.route("/health")
 def health():
-    status = "healthy"
-    return jsonify(status=status)
+    """Report that the service is running."""
+    return jsonify(status="healthy")
 
 
 @app.route("/")
