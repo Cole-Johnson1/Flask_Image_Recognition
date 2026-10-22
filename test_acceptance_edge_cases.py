@@ -1,8 +1,5 @@
-# test_acceptance_edge_cases.py
-
+"""Acceptance edge cases for the upload route."""
 from io import BytesIO
-import pytest
-from threading import Thread
 
 # Helper function for concurrent image uploads
 def upload_image(client, img_data):
