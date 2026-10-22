@@ -9,7 +9,7 @@ app = Flask(__name__)
 @app.route("/health")
 def health():
     """Report that the service is running."""
-    return jsonify(status="healthy")
+    return jsonify(status="ok")
 
 
 @app.route("/")
